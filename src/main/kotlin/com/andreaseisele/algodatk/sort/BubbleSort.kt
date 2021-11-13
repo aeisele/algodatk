@@ -19,6 +19,7 @@ class BubbleSort {
                 unsortedTil--
             }
 
+            println("sorted: ${array.joinToString()}")
             return array;
         }
 

@@ -1,22 +1,19 @@
 package com.andreaseisele.algodatk.sort
 
-import org.junit.jupiter.api.Assertions.assertArrayEquals
-import org.junit.jupiter.api.Test
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.collections.shouldBeSorted
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.int
+import io.kotest.property.arbitrary.intArray
+import io.kotest.property.checkAll
 
 
-internal class BubbleSortTest {
+class BubbleSortTest : StringSpec({
 
-    @Test
-    fun testSort() {
-        val sorted = BubbleSort.sort(arrayOf(7, 3, 15, 2, 1))
-        val expected = arrayOf(1, 2, 3, 7, 15)
-
-        assertArrayEquals(expected, sorted)
+    "should sort int array ascending" {
+        checkAll(Arb.intArray(Arb.int(5, 15), Arb.int())) { array ->
+            BubbleSort.sort(array.toTypedArray()).shouldBeSorted()
+        }
     }
 
-    @Test
-    fun testSortEmpty() {
-        val sorted = BubbleSort.sort(arrayOf())
-        assertArrayEquals(arrayOf(), sorted)
-    }
-}
+})

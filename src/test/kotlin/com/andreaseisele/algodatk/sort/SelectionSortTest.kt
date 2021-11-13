@@ -1,24 +1,19 @@
 package com.andreaseisele.algodatk.sort
 
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.collections.shouldBeSorted
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.int
+import io.kotest.property.arbitrary.intArray
+import io.kotest.property.checkAll
 
-internal class SelectionSortTest {
+class SelectionSortTest : StringSpec({
 
-    @Test
-    fun testSort() {
-        val sorted = SelectionSort.sort(arrayOf(4, 2, 7, 1, 3))
-        val expected = arrayOf(1, 2, 3, 4, 7)
-
-        assertArrayEquals(expected, sorted)
+    "should sort int array ascending" {
+        checkAll(Arb.intArray(Arb.int(5, 15), Arb.int())) { array ->
+            SelectionSort.sort(array.toTypedArray()).shouldBeSorted()
+        }
     }
 
-    @Test
-    fun testEmpty() {
-        val sorted = SelectionSort.sort(arrayOf())
-
-        assertArrayEquals(arrayOf(), sorted)
-    }
-
-}
+})
 

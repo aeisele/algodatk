@@ -5,7 +5,7 @@ class SelectionSort {
     companion object {
 
         fun sort(array: Array<Int>): Array<Int> {
-            for (i in array.indices) {
+            for (i in 0 until array.size - 1) { // last index will be sorted already
                 var lowestIdx = i;
                 for (j in i + 1 until array.size) {
                     if (array[j] < array[lowestIdx]) {

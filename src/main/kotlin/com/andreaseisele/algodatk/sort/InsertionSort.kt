@@ -16,7 +16,7 @@ class InsertionSort {
                 for (j in i - 1 downTo 0) {
                     if (array[j] > value) {
                         gapIdx = j
-                        array[j] = array[j+1].also { array[j+1] = array[j] }
+                        array[j + 1] = array[j]
                         continue
                     }
                     array[gapIdx] = value

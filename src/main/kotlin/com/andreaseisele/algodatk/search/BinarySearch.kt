@@ -1,5 +1,9 @@
 package com.andreaseisele.algodatk.search
 
+import mu.KotlinLogging
+
+private val logger = KotlinLogging.logger {}
+
 class BinarySearch {
 
     companion object {
@@ -10,7 +14,7 @@ class BinarySearch {
 
             while (lowerBound < upperBound) {
                 val middlePoint = (lowerBound + upperBound) / 2
-                println("lower $middlePoint, upper $upperBound, middle $middlePoint")
+                logger.debug { "lower $middlePoint, upper $upperBound, middle $middlePoint" }
                 val middleValue = array[middlePoint]
                 when {
                     middleValue == value -> {

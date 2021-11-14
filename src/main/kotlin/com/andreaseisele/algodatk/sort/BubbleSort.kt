@@ -1,5 +1,9 @@
 package com.andreaseisele.algodatk.sort
 
+import mu.KotlinLogging
+
+private val logger = KotlinLogging.logger {}
+
 class BubbleSort {
 
     companion object {
@@ -19,7 +23,7 @@ class BubbleSort {
                 unsortedTil--
             }
 
-            println("sorted: ${array.joinToString()}")
+            logger.debug { "sorted: ${array.joinToString()}" }
             return array;
         }
 

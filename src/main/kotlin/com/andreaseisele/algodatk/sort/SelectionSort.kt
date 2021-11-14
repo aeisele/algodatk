@@ -1,5 +1,9 @@
 package com.andreaseisele.algodatk.sort
 
+import mu.KotlinLogging
+
+private val logger = KotlinLogging.logger {}
+
 class SelectionSort {
 
     companion object {
@@ -12,7 +16,7 @@ class SelectionSort {
                         lowestIdx = j
                     }
                 }
-                println("selection for $i = swap ${array[i]} with ${array[lowestIdx]}")
+                logger.debug { "selection for $i = swap ${array[i]} with ${array[lowestIdx]}" }
                 array[i] = array[lowestIdx].also {array[lowestIdx] = array[i]}
             }
 
